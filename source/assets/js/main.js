@@ -1,10 +1,12 @@
 import { $ } from './bling';
 
-if (navigator.getBattery !== undefined) {
+if (navigator.getBattery) {
   navigator.getBattery()
     .then((battery) => {
       function updateChargeInfo() {
+        console.log(battery);
         const batteryLevel = battery.level * 100;
+        $('h1').textContent = `${batteryLevel}% battery power!`;
         if (batteryLevel === 100) {
           $('.charge-fill').style.background = 'limegreen';
         } else if (batteryLevel >= 20 && batteryLevel <= 80) {
@@ -28,10 +30,5 @@ if (navigator.getBattery !== undefined) {
     })
     .catch(err => console.log(err));
 } else {
-  $('body').remove();
-  const unsupported = document.createElement('body');
-  const unsupportedText = document.createTextNode('navigator.getBattery is not supported in your browser 😞');
-  unsupported.appendChild(unsupportedText);
-  const head = $('head');
-  $('html').insertBefore(unsupported, head);
+  $('body').innerHTML = 'navigator.getBattery is not supported in your browser 😞';
 }
