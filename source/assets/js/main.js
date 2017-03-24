@@ -3,9 +3,11 @@ import { $ } from './bling';
 if (navigator.getBattery) {
   navigator.getBattery()
     .then((battery) => {
+      console.log(battery);
       function updateChargeInfo() {
         const batteryLevel = battery.level * 100;
         const timeUntilZero = (battery.dischargingTime / 3600).toFixed(2);
+        const timeUntilFull = (battery.chargingTime / 3600).toFixed(2);
         if (batteryLevel >= 80) {
           $('.charge-fill').style.background = 'limegreen';
         } else if (batteryLevel > 20 && batteryLevel < 80) {
@@ -31,6 +33,14 @@ if (navigator.getBattery) {
           document.body.insertBefore(timeDiv, currentNode);
         } else {
           $('h1').textContent = `${batteryLevel}% battery power and climbing!`;
+          if ($('h3')) {
+            $('h3').remove();
+          }
+          const timeDiv = document.createElement('h3');
+          const timeContent = document.createTextNode(`Roughly ${timeUntilFull} hours until 💯`);
+          timeDiv.appendChild(timeContent);
+          const currentNode = $('h1');
+          document.body.insertBefore(timeDiv, currentNode);
         }
       }
 
