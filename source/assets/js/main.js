@@ -1,6 +1,6 @@
 import { $ } from './bling';
 
-if (navigator.getBattery) {
+if ('getBattery' in navigator) {
   navigator.getBattery()
     .then((battery) => {
       console.log(battery);
