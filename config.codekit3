@@ -43,15 +43,6 @@
 		"oAP": "\/docs\/docs",
 		"oF": 0
 		},
-	"\/gulpfile.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/docs\/gulpfile.min.js",
-		"oF": 1,
-		"sC": 0,
-		"tS": 0
-		},
 	"\/node_modules": {
 		"ft": 65536,
 		"oA": 1,
@@ -315,7 +306,7 @@
 	"displayValue": "chargin",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-girlfriend",
-	"lastBuiltDate": 512061127
+	"lastBuiltDate": 512076409
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
