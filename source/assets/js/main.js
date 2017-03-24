@@ -37,7 +37,7 @@ if (navigator.getBattery) {
             $('h3').remove();
           }
           const timeDiv = document.createElement('h3');
-          const timeContent = document.createTextNode('You\'re charged up');
+          const timeContent = document.createTextNode('"Charged Up" - Drake');
           timeDiv.appendChild(timeContent);
           const currentNode = $('h1');
           document.body.insertBefore(timeDiv, currentNode);
