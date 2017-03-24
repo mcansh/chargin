@@ -5,7 +5,7 @@ if (navigator.getBattery) {
     .then((battery) => {
       function updateChargeInfo() {
         const batteryLevel = battery.level * 100;
-        const timeUntilZero = battery.dischargingTime / 3600;
+        const timeUntilZero = (battery.dischargingTime / 3600).toFixed(2);
         if (batteryLevel >= 80) {
           $('.charge-fill').style.background = 'limegreen';
         } else if (batteryLevel > 20 && batteryLevel < 80) {
