@@ -110,25 +110,121 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"\/source\/assets\/img\/droplet.svg": {
-		"ft": 2097152,
-		"miP": 0,
+	"\/source\/assets\/img\/favicon-120.png": {
+		"ft": 32768,
+		"iS": 2496,
+		"l": 1,
 		"oA": 2,
-		"oAP": "\/docs\/assets\/img\/droplet.svg",
+		"oAP": "\/docs\/assets\/img\/favicon-120.png",
 		"oF": 0,
 		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
+		"q": 100
 		},
-	"\/source\/assets\/img\/sprite.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 1,
-		"oAP": "\/docs\/assets\/img\/sprite.svg",
+	"\/source\/assets\/img\/favicon-128.png": {
+		"ft": 32768,
+		"iS": 2833,
+		"l": 1,
+		"oA": 2,
+		"oAP": "\/docs\/assets\/img\/favicon-128.png",
 		"oF": 0,
 		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
+		"q": 100
+		},
+	"\/source\/assets\/img\/favicon-144.png": {
+		"ft": 32768,
+		"iS": 3489,
+		"l": 1,
+		"oA": 2,
+		"oAP": "\/docs\/assets\/img\/favicon-144.png",
+		"oF": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/source\/assets\/img\/favicon-152.png": {
+		"ft": 32768,
+		"iS": 3867,
+		"l": 1,
+		"oA": 2,
+		"oAP": "\/docs\/assets\/img\/favicon-152.png",
+		"oF": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/source\/assets\/img\/favicon-195.png": {
+		"ft": 32768,
+		"iS": 5719,
+		"l": 1,
+		"oA": 2,
+		"oAP": "\/docs\/assets\/img\/favicon-195.png",
+		"oF": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/source\/assets\/img\/favicon-228.png": {
+		"ft": 32768,
+		"iS": 7107,
+		"l": 1,
+		"oA": 2,
+		"oAP": "\/docs\/assets\/img\/favicon-228.png",
+		"oF": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/source\/assets\/img\/favicon-32.png": {
+		"ft": 32768,
+		"iS": 396,
+		"l": 1,
+		"oA": 2,
+		"oAP": "\/docs\/assets\/img\/favicon-32.png",
+		"oF": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/source\/assets\/img\/favicon-57.png": {
+		"ft": 32768,
+		"iS": 785,
+		"l": 1,
+		"oA": 2,
+		"oAP": "\/docs\/assets\/img\/favicon-57.png",
+		"oF": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/source\/assets\/img\/favicon-72.png": {
+		"ft": 32768,
+		"iS": 1241,
+		"l": 1,
+		"oA": 2,
+		"oAP": "\/docs\/assets\/img\/favicon-72.png",
+		"oF": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/source\/assets\/img\/favicon-96.png": {
+		"ft": 32768,
+		"iS": 1798,
+		"l": 1,
+		"oA": 2,
+		"oAP": "\/docs\/assets\/img\/favicon-96.png",
+		"oF": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/source\/assets\/img\/favicon.ico": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/assets\/img\/favicon.ico",
+		"oF": 0
+		},
+	"\/source\/assets\/img\/favicon.png": {
+		"ft": 32768,
+		"iS": 12893,
+		"l": 1,
+		"oA": 2,
+		"oAP": "\/docs\/assets\/img\/favicon.png",
+		"oF": 0,
+		"opt": 0,
+		"q": 100
 		},
 	"\/source\/assets\/js\/bling.js": {
 		"ft": 64,
@@ -163,12 +259,35 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"\/source\/assets\/js\/sw.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/docs\/assets\/js\/sw.min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 1
+		},
+	"\/source\/humans.txt": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/docs\/humans.txt",
+		"oF": 0
+		},
 	"\/source\/index.jade": {
 		"cOD": 1,
 		"ft": 512,
 		"oA": 0,
 		"oAP": "\/docs\/index.html",
 		"oF": 0,
+		"oS": 1
+		},
+	"\/source\/manifest.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/docs\/manifest-min.json",
+		"oF": 0,
+		"oO": 0,
 		"oS": 1
 		},
 	"\/webpack.config.js": {

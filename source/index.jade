@@ -5,7 +5,7 @@ html(lang="en")
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     link(type="text/plain" rel="author" href="/humans.txt")
-    meta(name="theme-color", content="######")
+    meta(name="theme-color", content="#000000")
     link(rel="shortcut icon" href="assets/img/favicon.ico")
     link(rel="stylesheet", href="assets/css/style.css")
 
@@ -25,17 +25,18 @@ html(lang="en")
     meta(name="twitter:card" content="summary")
     meta(name="twitter:site" content="@logansmcansh")
     meta(name="twitter:title" content="Logan McAnsh")
-    meta(name="twitter:description" content="Logan McAnsh")
-    meta(name="twitter:image" content="SOME URL HERE")
+    meta(name="twitter:description" content="Chargin")
+    meta(name="twitter:image" content="https://mcansh.github.io/chargin/assets/img/favicon.png")
   body
-    div(style="height:0;width:0;position:absolute;visibility:hidden")
-      include ./assets/img/sprite.svg
-      
-    mixin svg(name)
-      svg(class="icon-#{name}"): use(xlink:href="##{name}")
-      
+  
     h1 Chargin?
     .charge
       .charge-fill
 
     script(src="./assets/js/bundle.min.js")
+    script.
+      if (location.protocol !== 'http:') {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('./assets/js/sw.min.js');
+        }
+      }
