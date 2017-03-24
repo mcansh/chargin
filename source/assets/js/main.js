@@ -31,6 +31,16 @@ if (navigator.getBattery) {
           timeDiv.appendChild(timeContent);
           const currentNode = $('h1');
           document.body.insertBefore(timeDiv, currentNode);
+        } else if (battery.charging === true && batteryLevel === 100) {
+          $('h1').textContent = `${batteryLevel}% battery power`;
+          if ($('h3')) {
+            $('h3').remove();
+          }
+          const timeDiv = document.createElement('h3');
+          const timeContent = document.createTextNode('You\'re charged up');
+          timeDiv.appendChild(timeContent);
+          const currentNode = $('h1');
+          document.body.insertBefore(timeDiv, currentNode);
         } else {
           $('h1').textContent = `${batteryLevel}% battery power and climbing!`;
           if ($('h3')) {
