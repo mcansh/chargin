@@ -285,8 +285,8 @@
 	"\/source\/manifest.json": {
 		"ft": 524288,
 		"oA": 2,
-		"oAP": "\/docs\/manifest-min.json",
-		"oF": 1,
+		"oAP": "\/docs\/manifest.json",
+		"oF": 3,
 		"oO": 0,
 		"oS": 1
 		},
@@ -315,7 +315,7 @@
 	"displayValue": "chargin",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-girlfriend",
-	"lastBuiltDate": 512061079
+	"lastBuiltDate": 512061127
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
