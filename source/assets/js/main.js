@@ -7,20 +7,38 @@ if ('getBattery' in navigator) {
         console.log(battery);
         const batteryLevel = battery.level * 100;
 
-        const dischargeHours = Math.floor(battery.dischargingTime / 3600);
+        let dischargeHours = Math.floor(battery.dischargingTime / 3600);
+        if (dischargeHours === 1) {
+          dischargeHours = `${dischargeHours} hour`;
+        } else {
+          dischargeHours = `${dischargeHours} hours`;
+        }
         let dischargeMinutes = Math.floor((battery.dischargingTime % 3600) / 60);
-        if (dischargeMinutes < 10) {
-          dischargeMinutes = `0${dischargeMinutes}`;
+        if (dischargeMinutes === 1) {
+          dischargeMinutes = `0${dischargeMinutes} minute`;
+        } else if (dischargeMinutes < 10) {
+          dischargeMinutes = `0${dischargeMinutes} minutes`;
+        } else {
+          dischargeMinutes = `${dischargeMinutes} minutes`;
         }
 
-        const chargeHours = Math.floor(battery.chargingTime / 3600);
+        let chargeHours = Math.floor(battery.chargingTime / 3600);
+        if (chargeHours === 1) {
+          chargeHours = `${chargeHours} hour`;
+        } else {
+          chargeHours = `${chargeHours} hours`;
+        }
         let chargeMinutes = Math.floor((battery.chargingTime % 3600) / 60);
-        if (chargeMinutes < 10) {
-          chargeMinutes = `0${chargeMinutes}`;
+        if (chargeMinutes === 1) {
+          chargeMinutes = `0${chargeMinutes} minute`;
+        } else if (chargeMinutes < 10) {
+          chargeMinutes = `0${chargeMinutes} minutes`;
+        } else {
+          chargeMinutes = `${chargeMinutes} minutes`;
         }
 
-        const timeUntilZero = `${dischargeHours} hours ${dischargeMinutes} minutes`;
-        const timeUntilFull = `${chargeHours} hours ${chargeMinutes} minutes`;
+        const timeUntilZero = `${dischargeHours} ${dischargeMinutes}`;
+        const timeUntilFull = `${chargeHours} ${chargeMinutes}`;
         if (batteryLevel >= 80) {
           $('.charge-fill').style.background = 'limegreen';
         } else if (batteryLevel > 20 && batteryLevel < 80) {
@@ -63,7 +81,7 @@ if ('getBattery' in navigator) {
           }
           if (battery.chargingTime !== Infinity) {
             const timeDiv = document.createElement('h3');
-            const timeContent = document.createTextNode(`Roughly ${timeUntilFull} hours until 💯`);
+            const timeContent = document.createTextNode(`Roughly ${timeUntilFull} until 💯`);
             timeDiv.appendChild(timeContent);
             const currentNode = $('h1');
             document.body.insertBefore(timeDiv, currentNode);
