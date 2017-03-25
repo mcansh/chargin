@@ -18,27 +18,41 @@ body
   color: white
   font-size: 2rem
   text-align: center
+  max-width: 800px
+  width: 90%
+  margin: 0 auto
+  line-height: 1.2
   *:not(strong)
     font-weight: 300
 
+  h1
+    @media (max-width: 650px)
+      font-size: 2rem
+
+  h3
+    @media (max-width: 650px)
+      font-size: 1.3rem
+
 .charge
-  width: 80vw
-  max-width: rem(500px)
+  width: rem(350px)
   border: rem(10px) solid white
-  height: rem(165px)
+  height: rem(150px)
   position: relative
   display: flex
-  border-radius: rem(10px)
+  border-radius: rem(12px)
   z-index: 2
   &::after
     content: ''
     position: absolute
     top: 50%
-    right: -3.5vh
-    +size(5vh)
+    margin-top: -1.5rem
+    right: -2rem
+    height: 3rem
+    width: 1.5rem
     background: white
-    margin-top: -2.5vh
-    border-radius: rem(10px)
+    border: 2px solid white
+    border-radius: 0 rem(10px) rem(10px) 0
+    z-index: -1
 
   .charge-fill
     flex: 0
