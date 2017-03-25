@@ -7,7 +7,7 @@ html(lang="en")
     link(type="text/plain" rel="author" href="/humans.txt")
     meta(name="theme-color", content="#000000")
     link(rel="shortcut icon" href="assets/img/favicon.ico")
-    link(rel="stylesheet", href="assets/css/style.css")
+    link(rel="stylesheet", type="text/css" href="assets/css/style.css")
 
     // Apple Touch Icons
     link(rel="shortcut icon" href="assets/img/favicon-32.png" sizes="32x32")
@@ -35,8 +35,6 @@ html(lang="en")
 
     script(src="./assets/js/bundle.min.js")
     script.
-      if (location.protocol !== 'http:') {
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('./assets/js/sw.min.js');
-        }
+      if ( 'serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll) ) {
+        navigator.serviceWorker.register('./sw.js');
       }

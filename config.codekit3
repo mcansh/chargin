@@ -250,15 +250,6 @@
 		"sC": 0,
 		"tS": 0
 		},
-	"\/source\/assets\/js\/sw.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/docs\/assets\/js\/sw.min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 1
-		},
 	"\/source\/humans.txt": {
 		"ft": 8192,
 		"oA": 2,
@@ -280,6 +271,15 @@
 		"oF": 3,
 		"oO": 0,
 		"oS": 1
+		},
+	"\/source\/sw.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/docs\/sw.js",
+		"oF": 3,
+		"sC": 3,
+		"tS": 1
 		},
 	"\/webpack.config.js": {
 		"ft": 64,
@@ -306,7 +306,7 @@
 	"displayValue": "chargin",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-girlfriend",
-	"lastBuiltDate": 512076955
+	"lastBuiltDate": 512107250
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
