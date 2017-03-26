@@ -50,6 +50,8 @@ if ('getBattery' in navigator) {
 
         if (battery.charging === true) {
           $('.charge-fill').classList.add('charging');
+        } else {
+          $('.charge-fill').classList.remove('charging');
         }
 
         if (battery.charging !== true) {
