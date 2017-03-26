@@ -6,6 +6,7 @@
 *
   margin: 0
   box-sizing: border-box
+  fill: inherit
 
 body
   min-height: 100vh
@@ -57,9 +58,20 @@ body
   .charge-fill
     flex: 0
     flex-basis: 0%
+    display: flex
+    justify-content: center
+    align-items: center
+    svg
+      fill: #f19a0e
+      height: 100px
+      width: 56px
+      visibility: hidden
 
     &.charging
       animation: pulse 2s linear infinite
+      svg
+        visibility: visible
+
 
 
 @keyframes pulse

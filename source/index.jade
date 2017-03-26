@@ -5,6 +5,7 @@ html(lang="en")
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     link(type="text/plain" rel="author" href="/humans.txt")
+    link(rel="manifest" href="./manifest.json")
     meta(name="theme-color", content="#000000")
     link(rel="shortcut icon" href="assets/img/favicon.ico")
     link(rel="stylesheet", type="text/css" href="assets/css/style.css")
@@ -28,13 +29,19 @@ html(lang="en")
     meta(name="twitter:description" content="Chargin")
     meta(name="twitter:image" content="https://mcansh.github.io/chargin/assets/img/favicon.png")
   body
+    div(style="height:0;width:0;position:absolute;top:0;left:0;visibility:hidden")
+      include ./assets/img/charge.svg
   
     h1 Chargin?
     .charge
       .charge-fill
+        svg: use(xlink:href="#charge")
+        
 
     script(src="./assets/js/bundle.min.js")
     script.
-      if ( 'serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll) ) {
-        navigator.serviceWorker.register('./sw.js');
+      if (location.protocol !== 'http:') {
+        if ('serviceWorker' in navigator && (typeof Cache !== 'undefined' && Cache.prototype.addAll)) {
+          navigator.serviceWorker.register('./sw.js');
+        }
       }

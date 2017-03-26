@@ -101,6 +101,16 @@
 		"oS": 3,
 		"uL": 1
 		},
+	"\/source\/assets\/img\/charge.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 1,
+		"oAP": "\/source\/assets\/img\/charge.svg",
+		"oF": 3,
+		"opt": 1,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"\/source\/assets\/img\/favicon-120.png": {
 		"ft": 32768,
 		"iS": 2496,
@@ -306,7 +316,7 @@
 	"displayValue": "chargin",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-girlfriend",
-	"lastBuiltDate": 512107250
+	"lastBuiltDate": 512193833
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

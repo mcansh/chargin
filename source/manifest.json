@@ -2,7 +2,7 @@
   "name": "Chargin",
   "short_name": "Chargin",
   "description": "Show your device's current battery",
-  "start_url": "./?homescreen=1",
+  "start_url": "./",
   "background_color": "#000000",
   "display": "standalone",
   "theme_color": "#000000",
