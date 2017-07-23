@@ -23,13 +23,16 @@
 		"uuidString": "13570156-3E7A-46F0-98B0-5E989DFDC7FB"
 		}
 	],
-"creatorBuild": "25813",
+"creatorBuild": "25849",
 "files": {
-	"\/.eslintrc": {
-		"ft": 8192,
-		"oA": 1,
-		"oAP": "\/docs\/.eslintrc",
-		"oF": 1
+	"\/.estlintrc.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/docs\/.estlintrc.min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 1
 		},
 	"\/.gitignore": {
 		"ft": 8192,
@@ -74,19 +77,6 @@
 		"pME": 1,
 		"rFN": 0,
 		"uCM": 0
-		},
-	"\/source\/assets\/css\/_functions.sass": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 2,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/docs\/assets\/css\/_functions.css",
-		"oF": 0,
-		"oS": 3,
-		"uL": 1
 		},
 	"\/source\/assets\/css\/style.sass": {
 		"aP": 1,
@@ -2272,6 +2262,7 @@
 			"fileExtension": "gitignore"
 			}
 		],
+	"overrideExternalServerCSS": 0,
 	"previewPathAddition": "",
 	"skippedFoldersString": "log, _logs, logs, _cache, cache, \/storage\/framework\/sessions, node_modules",
 	"sourceFolderName": "source",
