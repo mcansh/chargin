@@ -57,9 +57,6 @@ body
   .charge-fill
     flex: 0
     flex-basis: 0%
-    display: flex
-    justify-content: center
-    align-items: center
     svg
       fill: #f19a0e
       height: 100px
@@ -71,6 +68,12 @@ body
       svg
         visibility: visible
 
+svg
+  position: absolute
+  top: 50%
+  transform: translateY(-50%) translateX(-50%)
+  left: 50%
+  fill: white
 
 
 @keyframes pulse
