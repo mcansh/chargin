@@ -2,16 +2,6 @@ import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 
 class Page extends Document {
-  componentDidMount() {
-    if (process.env.NODE_ENV === 'production') {
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-          .register('/sw.js')
-          .then(console.log('service worker registration successful')) // eslint-disable-line no-console
-          .catch(err => console.warn(err)); // eslint-disable-line no-console
-      }
-    }
-  }
   render() {
     return (
       <html lang="en">

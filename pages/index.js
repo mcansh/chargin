@@ -53,6 +53,13 @@ class Index extends React.Component {
         sentence: 'navigator.getBattery is not supported in your browser 😞',
       });
     }
+
+    if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/sw.js')
+        .then(console.log('service worker registration successful')) // eslint-disable-line no-console
+        .catch(err => console.warn(err)); // eslint-disable-line no-console
+    }
   }
 
   render() {
