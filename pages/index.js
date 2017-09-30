@@ -1,9 +1,7 @@
 import React from 'react';
 
 class Index extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
+  state = {};
   }
 
   getTime(time) {
