@@ -76,7 +76,6 @@ class Page extends Document {
             font-weight: 300;
           }
           body {
-            font-family: 'Roboto', sans-serif;
             background: #222;
             color: white;
             min-height: 100vh;
