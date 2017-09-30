@@ -19,8 +19,8 @@ app.prepare().then(() => {
     } else {
       handle(req, res, parsedUrl);
     }
-  }).listen(PORT, err => {
+  }).listen(PORT, (err) => {
     if (err) throw err;
-    console.log(`> Ready on http://localhost:${PORT}`); // eslint-disable-line no-console
+    console.log(`> Ready on http://localhost:${PORT}`);
   });
 });

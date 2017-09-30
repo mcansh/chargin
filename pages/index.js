@@ -17,7 +17,7 @@ class Index extends React.Component {
   }
 
   async updateBatteryInfo() {
-    const getTime = time => {
+    const getTime = (time) => {
       const hours = Math.floor(time / 3600);
       const minutes = Math.floor((time % 3600) / 60);
 
