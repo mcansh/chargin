@@ -2,8 +2,7 @@
   "name": "chargin",
   "version": "2.0.0",
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
-  "description":
-    "a fun little project to show whether your computer is charging or not 😜",
+  "description": "a fun little project to show whether your computer is charging or not 😜",
   "dependencies": {
     "next": "3.2.2",
     "prop-types": "latest",
@@ -17,7 +16,7 @@
     "eslint-plugin-import": "2.7.0",
     "eslint-plugin-jsx-a11y": "6.0.2",
     "eslint-plugin-react": "7.4.0",
-    "prettier-eslint": "8.2.0"
+    "prettier-eslint": "^8.2.0"
   },
   "scripts": {
     "start": "NODE_ENV=production node server.js",
