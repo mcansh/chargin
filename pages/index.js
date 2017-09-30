@@ -2,19 +2,32 @@ import React from 'react';
 
 class Index extends React.Component {
   state = {};
+
+  componentDidMount() {
+    if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/sw.js')
+        .then(console.log('service worker registration successful')) // eslint-disable-line no-console
+        .catch(err => console.warn(err)); // eslint-disable-line no-console
+    }
+    this.updateBatteryInfo();
   }
 
-  getTime(time) {
-    const hours = Math.floor(time / 3600);
-    const minutes = Math.floor((time % 3600) / 60);
+  async updateBatteryInfo() {
+    const getTime = time => {
+      const hours = Math.floor(time / 3600);
+      const minutes = Math.floor((time % 3600) / 60);
 
       const hourStr = hours === 1 ? 'hour' : 'hours';
       const minuteStr = hours === 1 ? 'minute' : 'minutes';
 
-    return `${hours} ${hourStr} ${minutes} ${minuteStr}`;
-  }
+      if (hours > 0) {
+        return `${hours} ${hourStr} ${minutes} ${minuteStr}`;
+      }
 
-  async componentDidMount() {
+      return `${minutes} ${minuteStr}`;
+    };
+
     if ('getBattery' in navigator) {
       const battery = await navigator.getBattery();
 
@@ -23,19 +36,21 @@ class Index extends React.Component {
         console.log(battery);
 
         const status = battery.charging ? 'climbing' : 'dropping';
-        const batterySentence = `${batteryLevel}% battery power and ${status}!`;
+        const batterySentence =
+          battery.charging && batteryLevel === 100
+            ? 'Charged Up - Drake'
+            : `${batteryLevel}% battery power and ${status}!`;
 
-        const chargeTime = this.getTime(battery.chargingTime);
-        const dischargeTime = this.getTime(battery.dischargingTime);
+        const chargeTime = getTime(battery.chargingTime);
+        const dischargeTime = getTime(battery.dischargingTime);
 
-        console.log(chargeTime, dischargeTime);
         let sentence;
-        if (battery.chargingTime !== Infinity) {
+        if (battery.charging && batteryLevel === 100) {
+          sentence = 'Charged Up - Drake';
+        } else if (battery.charging && battery.chargingTime !== Infinity) {
           sentence = `Roughly ${chargeTime} until 💯`;
         } else if (battery.dischargingTime !== Infinity) {
           sentence = `Roughly ${dischargeTime} until ☠️`;
-        } else if (batteryLevel === 100) {
-          sentence = 'Charged Up - Drake';
         }
 
         this.setState({ batterySentence, sentence });
@@ -50,13 +65,6 @@ class Index extends React.Component {
       this.setState({
         sentence: 'navigator.getBattery is not supported in your browser 😞',
       });
-    }
-
-    if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/sw.js')
-        .then(console.log('service worker registration successful')) // eslint-disable-line no-console
-        .catch(err => console.warn(err)); // eslint-disable-line no-console
     }
   }
 
