@@ -7,8 +7,8 @@ class Index extends React.Component {
     if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
       navigator.serviceWorker
         .register('/sw.js')
-        .then(console.log('service worker registration successful')) // eslint-disable-line no-console
-        .catch(err => console.warn(err)); // eslint-disable-line no-console
+        .then(console.log('service worker registration successful'))
+        .catch(err => console.warn(err));
     }
     this.updateBatteryInfo();
   }
