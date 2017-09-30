@@ -38,7 +38,7 @@ class Index extends React.Component {
         const status = battery.charging ? 'climbing' : 'dropping';
         const batterySentence =
           battery.charging && batteryLevel === 100
-            ? 'Charged Up - Drake'
+            ? `${batteryLevel}% battery power`
             : `${batteryLevel}% battery power and ${status}!`;
 
         const chargeTime = getTime(battery.chargingTime);
