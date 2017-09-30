@@ -1,7 +1,10 @@
 import React from 'react';
 
 class Index extends React.Component {
-  state = {};
+  constructor() {
+    super();
+    this.state = {};
+  }
 
   componentDidMount() {
     if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
