@@ -8,8 +8,8 @@ class Index extends React.Component {
     const hours = Math.floor(time / 3600);
     const minutes = Math.floor((time % 3600) / 60);
 
-    const hourStr = hours > 1 ? 'hours' : 'hour';
-    const minuteStr = hours > 1 ? 'minutes' : 'minute';
+      const hourStr = hours === 1 ? 'hour' : 'hours';
+      const minuteStr = hours === 1 ? 'minute' : 'minutes';
 
     return `${hours} ${hourStr} ${minutes} ${minuteStr}`;
   }
