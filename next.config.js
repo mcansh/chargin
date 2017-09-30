@@ -24,9 +24,4 @@ module.exports = {
     }
     return config;
   },
-  exportPathMap() {
-    return {
-      '/': { page: '/' },
-    };
-  },
 };
