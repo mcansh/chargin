@@ -4,7 +4,7 @@ module.exports = {
     browser: true,
     node: true,
   },
-  plugins: ['eslint-plugin-html', 'prettier'],
+  plugins: ['prettier'],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'jsx-a11y/href-no-hash': 0,
