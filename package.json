@@ -1,31 +1,30 @@
 {
-  "name": "chargin",
-  "version": "2.0.0",
-  "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
-  "description":
-    "a fun little project to show whether your computer is charging or not 😜",
-  "dependencies": {
-    "next": "4.0.1",
-    "prop-types": "latest",
-    "react": "16.0.0",
-    "react-dom": "16.0.0",
-    "sw-precache-webpack-plugin": "0.11.4"
-  },
+  "name": "",
+  "version": "",
+  "description": "",
+  "main": "source/assets/js/main.js",
+  "dependencies": {},
   "devDependencies": {
-    "eslint": "4.8.0",
-    "eslint-config-airbnb": "15.1.0",
-    "eslint-plugin-import": "2.7.0",
-    "eslint-plugin-jsx-a11y": "6.0.2",
-    "eslint-plugin-prettier": "^2.3.1",
-    "eslint-plugin-react": "7.4.0",
-    "prettier-eslint": "^8.2.0"
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-es2015-native-modules": "^6.9.4",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-plugin-import": "^2.7.0",
+    "webpack": "^3.3.0"
   },
   "scripts": {
-    "start": "NODE_ENV=production node server.js",
-    "build": "next build",
-    "dev": "next",
-    "test": "eslint ./"
+    "build": "webpack --progress --colors --watch"
   },
-  "license": "MIT",
-  "repository": "git@github.com:mcansh/chargin.git"
+  "author": "Logan McAnsh",
+  "license": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcansh/init.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mcansh/init/issues"
+  },
+  "homepage": "https://github.com/mcansh/init#readme"
 }
