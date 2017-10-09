@@ -48,7 +48,7 @@ class Page extends Document {
             max-width: 800px;
             width: 90%;
             margin: 0 auto;
-            line-height: 1.5;
+            line-height: 1.2;
           }
         `}</style>
         <body>
