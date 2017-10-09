@@ -17,7 +17,6 @@ class Page extends Document {
             name="description"
             content="a fun little project to show whether your computer is charging or not 😜"
           />
-          <link rel="manifest" href="/static/manifest.json" />
           <link rel="shortcut icon" href="/static/favicon-32.png" sizes="32x32" />
           <link rel="apple-touch-icon-precomposed" sizes="228x228" href="/static/favicon-228.png" />
           <link rel="apple-touch-icon-precomposed" sizes="195x195" href="/static/favicon-195.png" />
