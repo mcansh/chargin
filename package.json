@@ -5,10 +5,10 @@
   "description":
     "a fun little project to show whether your computer is charging or not 😜",
   "dependencies": {
-    "next": "3.2.2",
+    "next": "4.0.1",
     "prop-types": "latest",
-    "react": "15.6.1",
-    "react-dom": "15.6.1",
+    "react": "16.0.0",
+    "react-dom": "16.0.0",
     "sw-precache-webpack-plugin": "0.11.4"
   },
   "devDependencies": {
