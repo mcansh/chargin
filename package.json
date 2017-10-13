@@ -1,9 +1,8 @@
 {
   "name": "chargin",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
-  "description":
-    "a fun little project to show whether your computer is charging or not 😜",
+  "description": "a fun little project to show whether your computer is charging or not 😜",
   "dependencies": {
     "next": "4.0.1",
     "prop-types": "latest",
