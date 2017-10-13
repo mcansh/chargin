@@ -28,29 +28,6 @@ class Page extends Document {
           <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/favicon-72.png" />
           <link rel="apple-touch-icon-precomposed" href="/static/favicon-57.png" />
         </Head>
-        <style jsx global>{`
-          @import url('https://mcan.sh/assets/fonts/Gotham/gotham.css');
-          * {
-            margin: 0;
-            box-sizing: border-box;
-            font-weight: 300;
-          }
-          body {
-            background: #222;
-            color: white;
-            min-height: 100vh;
-            font-family: 'Gotham Pro';
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            text-align: center;
-            max-width: 800px;
-            width: 90%;
-            margin: 0 auto;
-            line-height: 1.2;
-          }
-        `}</style>
         <body>
           <Main />
           <NextScript />
