@@ -2,7 +2,8 @@
   "name": "chargin",
   "version": "2.0.1",
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
-  "description": "a fun little project to show whether your computer is charging or not 😜",
+  "description":
+    "a fun little project to show whether your computer is charging or not 😜",
   "dependencies": {
     "next": "4.0.1",
     "prop-types": "latest",
@@ -23,8 +24,12 @@
     "start": "NODE_ENV=production node server.js",
     "build": "next build",
     "dev": "next",
-    "test": "eslint ./"
+    "test": "eslint ./",
+    "deploy": "now && now alias"
   },
   "license": "MIT",
-  "repository": "git@github.com:mcansh/chargin.git"
+  "repository": "git@github.com:mcansh/chargin.git",
+  "now": {
+    "alias": "chargin.loganmcansh.com"
+  }
 }
