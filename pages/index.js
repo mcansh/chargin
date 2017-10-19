@@ -68,7 +68,7 @@ class Index extends React.Component {
         this.setState({
           batterySentence,
           sentence,
-          batteryLevel,
+          batteryLevel: `${batteryLevel}%`,
           color,
           charging: battery.charging,
         });
