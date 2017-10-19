@@ -89,13 +89,8 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <h3>{this.state.sentence}</h3>
-        <h1>{this.state.batterySentence}</h1>
-        <Battery
-          charging={this.state.charging}
-          percent={this.state.batteryLevel}
-          color={this.state.color}
-        />
+        {sentence ? <h3>{sentence}</h3> : ''}
+        {batterySentence ? <h1>{batterySentence}</h1> : ''}
         <style jsx>{`
           h1 {
             margin: 0.67em 0;
