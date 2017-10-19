@@ -98,6 +98,7 @@ class Index extends React.Component {
       <div>
         {sentence ? <h3>{sentence}</h3> : ''}
         {batterySentence ? <h1>{batterySentence}</h1> : ''}
+        <Battery charging={charging} percent={batteryLevel} color={color} />
         <style jsx>{`
           h1 {
             margin: 0.67em 0;
@@ -112,7 +113,7 @@ class Index extends React.Component {
           }
         `}</style>
         <style jsx global>{`
-          @import url('https://mcan.sh/assets/fonts/Gotham/gotham.css');
+          @import url(https://mcan.sh/assets/fonts/Gotham/gotham.css);
           * {
             margin: 0;
             box-sizing: border-box;
