@@ -4,7 +4,13 @@ import Battery from '../components/Battery';
 class Index extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      batterySentence: '',
+      sentence: '',
+      batteryLevel: '',
+      color: '',
+      charging: false,
+    };
   }
 
   componentDidMount() {
