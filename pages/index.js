@@ -87,6 +87,13 @@ class Index extends React.Component {
   }
 
   render() {
+    const {
+      sentence,
+      batterySentence,
+      charging,
+      batteryLevel,
+      color,
+    } = this.state;
     return (
       <div>
         {sentence ? <h3>{sentence}</h3> : ''}
