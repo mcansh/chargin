@@ -24,7 +24,7 @@ class Index extends React.Component {
   }
 
   async updateBatteryInfo() {
-    const getTime = (time) => {
+    const getTime = time => {
       const hours = Math.floor(time / 3600);
       const minutes = Math.floor((time % 3600) / 60);
 
@@ -91,7 +91,11 @@ class Index extends React.Component {
       <div>
         <h3>{this.state.sentence}</h3>
         <h1>{this.state.batterySentence}</h1>
-        <Battery percent={this.state.batteryLevel} color={this.state.color} />
+        <Battery
+          charging={this.state.charging}
+          percent={this.state.batteryLevel}
+          color={this.state.color}
+        />
         <style jsx>{`
           h1 {
             margin: 0.67em 0;

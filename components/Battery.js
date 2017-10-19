@@ -7,7 +7,7 @@ const Battery = ({ percent, color, charging }) => {
   const showBolt = () => (charging ? <Bolt /> : null);
   return (
     <div id="battery">
-      <div id="battery__fill">{showBolt}</div>
+      <div id="battery__fill">{showBolt()}</div>
       <style jsx>{`
         #battery {
           width: 350px;
