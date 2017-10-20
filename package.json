@@ -4,7 +4,7 @@
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
   "description": "a fun little project to show whether your computer is charging or not 😜",
   "dependencies": {
-    "next": "4.1.1",
+    "next": "4.1.2",
     "prop-types": "latest",
     "react": "16.0.0",
     "react-dom": "16.0.0",
