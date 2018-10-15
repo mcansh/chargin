@@ -1,6 +1,6 @@
 {
   "name": "chargin",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
   "description": "a fun little project to show whether your computer is charging or not 😜",
   "license": "MIT",
