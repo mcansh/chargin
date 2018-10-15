@@ -1,33 +1,22 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
 class Page extends Document {
+  static getInitialProps({ renderPage }) {
+    const sheet = new ServerStyleSheet();
+    const page = renderPage(App => props =>
+      sheet.collectStyles(<App {...props} />)
+    );
+    const styleTags = sheet.getStyleElement();
+    return { ...page, styleTags };
+  }
+
   render() {
+    const { styleTags } = this.props;
     return (
       <html lang="en">
-        <Head>
-          <title>Chargin</title>
-          <meta charSet="utf-8" />
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width, viewport-fit=cover"
-          />
-          <link rel="manifest" href="/static/manifest.json" />
-          <meta
-            name="description"
-            content="a fun little project to show whether your computer is charging or not 😜"
-          />
-          <link rel="shortcut icon" href="/static/favicon-32.png" sizes="32x32" />
-          <link rel="apple-touch-icon-precomposed" sizes="228x228" href="/static/favicon-228.png" />
-          <link rel="apple-touch-icon-precomposed" sizes="195x195" href="/static/favicon-195.png" />
-          <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/static/favicon-152.png" />
-          <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/favicon-144.png" />
-          <link rel="apple-touch-icon-precomposed" sizes="128x128" href="/static/favicon-128.png" />
-          <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/static/favicon-120.png" />
-          <link rel="apple-touch-icon-precomposed" sizes="96x96" href="/static/favicon-96.png" />
-          <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/favicon-72.png" />
-          <link rel="apple-touch-icon-precomposed" href="/static/favicon-57.png" />
-        </Head>
+        <Head>{styleTags}</Head>
         <body>
           <Main />
           <NextScript />

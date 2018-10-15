@@ -2,16 +2,13 @@ import React from 'react';
 import Battery from '../components/Battery';
 
 class Index extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      batterySentence: '',
-      sentence: '',
-      batteryLevel: '',
-      color: '',
-      charging: false,
-    };
-  }
+  state = {
+    batterySentence: '',
+    sentence: '',
+    batteryLevel: '',
+    color: '',
+    charging: false,
+  };
 
   componentDidMount() {
     if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
