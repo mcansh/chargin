@@ -86,6 +86,7 @@ class MyApp extends App {
             <meta name="description" content={description} />
             {faviconSizes.map(favicon => (
               <link
+                key={favicon}
                 rel="apple-touch-icon-precomposed"
                 sizes={`${favicon}x${favicon}`}
                 href={`/static/favicon-${favicon}.png`}
