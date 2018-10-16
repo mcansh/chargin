@@ -1,5 +1,19 @@
 {
   "name": "chargin",
   "alias": "chargin.loganmcansh.com",
-  "type": "static"
+  "type": "static",
+  "static": {
+    "directoryListing": false,
+    "headers": [
+      {
+        "source": "**/static/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      }
+    ]
+  }
 }

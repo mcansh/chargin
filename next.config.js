@@ -9,15 +9,23 @@ const { name } = require('./package.json');
 
 const copyFile = promisify(fs.copyFile);
 
-const staticFilesToCopy = ['favicon.ico', 'favicon.png', 'manifest.json'];
+const staticFilesToCopy = [
+  'favicon.ico',
+  'favicon.png',
+  'manifest.json',
+  'sw.js',
+];
 
 module.exports = {
-  async exportPathMap(defaultPathMap, { dev, dir, outDir }) {
+  async exportPathMap(defaultPathMap, { dev, dir, outDir, distDir }) {
     if (dev) return defaultPathMap;
     await Promise.all(
-      staticFilesToCopy.map(file =>
-        copyFile(join(dir, file), join(outDir, file))
-      )
+      staticFilesToCopy.map(file => {
+        if (file === 'sw.js') {
+          return copyFile(join(distDir, file), join(outDir, file));
+        }
+        return copyFile(join(dir, file), join(outDir, file));
+      })
     );
     return defaultPathMap;
   },
