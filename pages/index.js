@@ -1,5 +1,9 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import Battery from '../components/Battery';
+
+const Heading = dynamic(import('../components/Heading'));
+const SubHeading = dynamic(import('../components/SubHeading'));
 
 class Index extends React.Component {
   state = {
@@ -93,45 +97,9 @@ class Index extends React.Component {
     } = this.state;
     return (
       <div>
-        {sentence ? <h3>{sentence}</h3> : ''}
-        {batterySentence ? <h1>{batterySentence}</h1> : ''}
+        {sentence && <SubHeading>{sentence}</SubHeading>}
+        {batterySentence && <Heading>{batterySentence}</Heading>}
         <Battery charging={charging} percent={batteryLevel} color={color} />
-        <style jsx>{`
-          h1 {
-            margin: 0.67em 0;
-          }
-          @media (max-width: 650px) {
-            h1 {
-              font-size: 2rem;
-            }
-            h3 {
-              font-size: 1.3rem;
-            }
-          }
-        `}</style>
-        <style jsx global>{`
-          @import url(https://mcan.sh/assets/fonts/Gotham/gotham.css);
-          * {
-            margin: 0;
-            box-sizing: border-box;
-            font-weight: 300;
-          }
-          body {
-            background: #222;
-            color: white;
-            min-height: 100vh;
-            font-family: 'Gotham Pro';
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            text-align: center;
-            max-width: 800px;
-            width: 90%;
-            margin: 0 auto;
-            line-height: 1.2;
-          }
-        `}</style>
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
+import GlobalStyles from './GlobalStyles';
 import Link from './Link';
 import { description } from '../package.json';
 
@@ -36,7 +37,7 @@ class Page extends Component {
   render() {
     const { children } = this.props;
     return (
-      <>
+      <div>
         <Head>
           <title>Chargin</title>
           <meta charSet="utf-8" />
@@ -55,11 +56,12 @@ class Page extends Component {
             />
           ))}
         </Head>
+        <GlobalStyles />
         {children}
         <BottomLink href="https://github.com/mcansh/chargin" target="_blank">
           src
         </BottomLink>
-      </>
+      </div>
     );
   }
 }
