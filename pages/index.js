@@ -2,8 +2,12 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import Battery from '../components/Battery';
 
-const Heading = dynamic(import('../components/Heading'));
-const SubHeading = dynamic(import('../components/SubHeading'));
+const Heading = dynamic(import('../components/Heading'), {
+  loading: () => null,
+});
+const SubHeading = dynamic(import('../components/SubHeading'), {
+  loading: () => null,
+});
 
 class Index extends React.Component {
   state = {
