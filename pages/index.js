@@ -2,12 +2,13 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import IntlRelativeFormat from 'intl-relativeformat';
-import Battery from '../components/Battery';
 
+const Battery = dynamic(import('../components/Battery'), {
+  loading: () => null,
+});
 const Heading = dynamic(import('../components/Heading'), {
   loading: () => null,
 });
-
 const SubHeading = dynamic(import('../components/SubHeading'), {
   loading: () => null,
 });
@@ -29,9 +30,10 @@ const Index = () => {
   });
 
   const getTime = (seconds: number): string => {
-    const date = new Date(Date.now() + seconds * 1000);
+    const milliseconds = seconds * 1000;
+    const now = Date.now();
+    const date = new Date(now + milliseconds);
     const rf = new IntlRelativeFormat('en-US');
-
     return rf.format(date);
   };
 
@@ -60,6 +62,11 @@ const Index = () => {
   };
 
   const updateText = () => {
+    if (!('getBattery' in navigator)) {
+      return setText({
+        subheading: "Your browser doesn't support navigator.getBattery",
+      });
+    }
     if (batteryState.charging && batteryState.charge === 100) {
       return setText({
         subheading: 'Charged Up - Drake',
@@ -98,6 +105,10 @@ const Index = () => {
   // $FlowFixMe
   React.useEffect(
     async () => {
+      if (!('getBattery' in navigator)) {
+        return null;
+      }
+
       const battery = await updateBatteryInfo();
       battery.addEventListener('levelchange', updateBatteryInfo);
       battery.addEventListener('chargingtimechange', updateBatteryInfo);
