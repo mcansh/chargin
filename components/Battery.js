@@ -1,5 +1,5 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Bolt from './Bolt';
 
@@ -36,19 +36,19 @@ const BatteryStyles = styled.div`
   }
 `;
 
-const Battery = ({ percent, color, charging }) => {
+type Props = {
+  percent: number,
+  color: string,
+  charging: boolean,
+};
+
+const Battery = ({ percent, color, charging }: Props) => {
   if (!percent && !color) return null;
   return (
     <BatteryStyles color={color} percent={percent}>
       <div id="battery__fill">{charging && <Bolt />}</div>
     </BatteryStyles>
   );
-};
-
-Battery.propTypes = {
-  color: PropTypes.string.isRequired,
-  percent: PropTypes.string.isRequired,
-  charging: PropTypes.bool.isRequired,
 };
 
 export default Battery;

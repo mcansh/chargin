@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+// @flow
+import React, { Component, type Element } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import Head from 'next/head';
 import GlobalStyles from './GlobalStyles';
 import Link from './Link';
@@ -16,14 +16,15 @@ const BottomLink = styled(Link)`
   font-size: 1.6rem;
 `;
 
-class Page extends Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-  };
+type Props = {
+  children: Element<'div'>,
+};
 
+class Page extends Component<Props> {
   componentDidMount = () => {
     if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
       navigator.serviceWorker
+        // $FlowFixMe
         .register('/sw.js')
         .then(() => {
           console.log('service worker registration successful');
