@@ -1,5 +1,6 @@
-import React from 'react';
-import Link from 'next/link';
+// @flow
+import React, { type Node } from 'react';
+import Link, { type Props as LinkProps } from 'next/link';
 import styled from 'styled-components';
 
 const StyledLink = styled.a`
@@ -11,7 +12,11 @@ const StyledLink = styled.a`
   }
 `;
 
-const MyLink = ({ href, prefetch, children, ...anchorProps }) => (
+type Props = LinkProps & {
+  children: Node,
+};
+
+const MyLink = ({ href, prefetch, children, ...anchorProps }: Props) => (
   <Link href={href} passHref prefetch={prefetch}>
     <StyledLink {...anchorProps}>{children}</StyledLink>
   </Link>

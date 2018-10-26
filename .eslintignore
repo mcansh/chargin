@@ -1,2 +1,2 @@
-!.babelrc.js
-!.eslintrc.js
+!.*.js
+flow-typed
