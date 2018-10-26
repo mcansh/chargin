@@ -1,7 +1,7 @@
 [ignore]
 .*/node_modules/*
 .*/.next/.*
-.next.config.js
+.*/next.config.js
 
 [include]
 

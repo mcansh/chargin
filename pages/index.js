@@ -1,112 +1,133 @@
+// @flow
 import React from 'react';
 import dynamic from 'next/dynamic';
+import IntlRelativeFormat from 'intl-relativeformat';
 import Battery from '../components/Battery';
 
 const Heading = dynamic(import('../components/Heading'), {
   loading: () => null,
 });
+
 const SubHeading = dynamic(import('../components/SubHeading'), {
   loading: () => null,
 });
 
-class Index extends React.Component {
-  state = {
-    batterySentence: '',
-    sentence: '',
-    batteryLevel: '',
-    color: '',
+const Index = () => {
+  // $FlowFixMe
+  const [batteryState, setBattery] = React.useState({
     charging: false,
+    charge: 0,
+    chargingTime: 0,
+    dischargingTime: 0,
+    color: '',
+  });
+
+  // $FlowFixMe
+  const [{ heading, subheading }, setText] = React.useState({
+    heading: '',
+    subheading: '',
+  });
+
+  const getTime = (seconds: number): string => {
+    const date = new Date(Date.now() + seconds * 1000);
+    const rf = new IntlRelativeFormat('en-US');
+
+    return rf.format(date);
   };
 
-  componentDidMount() {
-    if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/sw.js')
-        .then(console.log('service worker registration successful'))
-        .catch(err => console.warn(err));
+  const updateBatteryInfo = async () => {
+    const battery = await window.navigator.getBattery();
+    const { charging, level } = battery;
+    const charge = level * 100;
+    const chargingTime =
+      battery.chargingTime === Infinity ? null : getTime(battery.chargingTime);
+    const dischargingTime =
+      battery.dischargingTime === Infinity
+        ? null
+        : getTime(battery.dischargingTime);
+
+    const color = charge > 20 ? '#1EB273' : '#E53A40';
+
+    setBattery({
+      ...batteryState,
+      charging,
+      color,
+      charge,
+      chargingTime,
+      dischargingTime,
+    });
+    return battery;
+  };
+
+  const updateText = () => {
+    if (batteryState.charging && batteryState.charge === 100) {
+      return setText({
+        subheading: 'Charged Up - Drake',
+        heading: `${batteryState.charge}% battery power`,
+      });
     }
-    this.updateBatteryInfo();
-  }
+    if (batteryState.charging && batteryState.chargingTime) {
+      return setText({
+        subheading: `💯💯 Fully charged roughly ${
+          batteryState.chargingTime
+        } 💯💯`,
+        heading: `${batteryState.charge}% battery power and ${
+          batteryState.charging ? 'climbing' : 'dropping'
+        }!`,
+      });
+    }
+    if (batteryState.dischargingTime) {
+      return setText({
+        subheading: `💀💀 Dead roughly ${batteryState.dischargingTime} 💀💀`,
+        heading: `${batteryState.charge}% battery power and ${
+          batteryState.charging ? 'climbing' : 'dropping'
+        }!`,
+      });
+    }
 
-  async updateBatteryInfo() {
-    const getTime = time => {
-      const hours = Math.floor(time / 3600);
-      const minutes = Math.floor((time % 3600) / 60);
+    return setText({
+      heading: `${batteryState.charge}% battery power!`,
+    });
+  };
 
-      const hourStr = hours === 1 ? 'hour' : 'hours';
-      const minuteStr = hours === 1 ? 'minute' : 'minutes';
+  // $FlowFixMe
+  React.useEffect(() => {
+    updateText();
+  });
 
-      if (hours > 0) {
-        return `${hours} ${hourStr} ${minutes} ${minuteStr}`;
-      }
-
-      return `${minutes} ${minuteStr}`;
-    };
-
-    if ('getBattery' in navigator) {
-      const battery = await navigator.getBattery();
-
-      const updateBatteryInfo = () => {
-        const batteryLevel = Math.round(battery.level * 100);
-        console.log(battery);
-
-        const status = battery.charging ? 'climbing' : 'dropping';
-        const batterySentence =
-          battery.charging && batteryLevel === 100
-            ? `${batteryLevel}% battery power`
-            : `${batteryLevel}% battery power and ${status}!`;
-
-        const chargeTime = getTime(battery.chargingTime);
-        const dischargeTime = getTime(battery.dischargingTime);
-
-        let sentence;
-        if (battery.charging && batteryLevel === 100) {
-          sentence = 'Charged Up - Drake';
-        } else if (battery.charging && battery.chargingTime !== Infinity) {
-          sentence = `Roughly ${chargeTime} until 💯`;
-        } else if (battery.dischargingTime !== Infinity) {
-          sentence = `Roughly ${dischargeTime} until ☠️`;
-        }
-
-        const color = batteryLevel > 20 ? 'limegreen' : '#E53A40';
-
-        this.setState({
-          batterySentence,
-          sentence,
-          batteryLevel: `${batteryLevel}%`,
-          color,
-          charging: battery.charging,
-        });
-      };
-
-      updateBatteryInfo();
+  // $FlowFixMe
+  React.useEffect(
+    async () => {
+      const battery = await updateBatteryInfo();
       battery.addEventListener('levelchange', updateBatteryInfo);
       battery.addEventListener('chargingtimechange', updateBatteryInfo);
       battery.addEventListener('dischargingtimechange', updateBatteryInfo);
       battery.addEventListener('chargingchange', updateBatteryInfo);
-    } else {
-      this.setState({
-        sentence: 'navigator.getBattery is not supported in your browser 😞',
-      });
-    }
-  }
+      return () => {
+        battery.removeEventListener('levelchange', updateBatteryInfo);
+        battery.removeEventListener('chargingtimechange', updateBatteryInfo);
+        battery.removeEventListener('dischargingtimechange', updateBatteryInfo);
+        battery.removeEventListener('chargingchange', updateBatteryInfo);
+      };
+    },
+    [
+      batteryState.chargingTime,
+      batteryState.charging,
+      batteryState.dischargingTime,
+    ]
+  );
 
-  render() {
-    const {
-      sentence,
-      batterySentence,
-      charging,
-      batteryLevel,
-      color,
-    } = this.state;
-    return (
-      <div>
-        {sentence && <SubHeading>{sentence}</SubHeading>}
-        {batterySentence && <Heading>{batterySentence}</Heading>}
-        <Battery charging={charging} percent={batteryLevel} color={color} />
-      </div>
-    );
-  }
-}
+  return (
+    <>
+      {subheading && <SubHeading>{subheading}</SubHeading>}
+      {heading && <Heading>{heading}</Heading>}
+      <Battery
+        charging={batteryState.charging}
+        color={batteryState.color}
+        percent={batteryState.charge}
+      />
+    </>
+  );
+};
 
 export default Index;

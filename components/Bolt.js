@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const BoltStyles = styled.svg`
-  fill: #f19a0e;
+  fill: #ffb600;
   height: 100px;
   width: 56px;
   position: absolute;

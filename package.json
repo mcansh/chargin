@@ -15,10 +15,11 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "1.8.0",
+    "intl-relativeformat": "2.1.0",
     "next": "7.0.2",
     "prop-types": "15.6.2",
-    "react": "16.5.2",
-    "react-dom": "16.5.2",
+    "react": "16.7.0-alpha.0",
+    "react-dom": "16.7.0-alpha.0",
     "styled-components": "4.0.0",
     "sw-precache-webpack-plugin": "0.11.5",
     "webpack": "4.20.2"

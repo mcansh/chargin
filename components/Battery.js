@@ -13,6 +13,7 @@ const BatteryStyles = styled.div`
   border-radius: 22px;
   z-index: 2;
   margin: 0 auto;
+  overflow: hidden;
 
   &::after {
     content: '';
@@ -30,9 +31,7 @@ const BatteryStyles = styled.div`
 
   #battery__fill {
     background: ${props => props.color};
-    flex-basis: ${props => props.percent};
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
+    flex-basis: ${props => props.percent}%;
   }
 `;
 
