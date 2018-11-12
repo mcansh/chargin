@@ -1,0 +1,12 @@
+flow-typed
+.eslintignore
+.eslintrc.js
+.flowconfig
+.gitignore
+.travis.yml
+.yarnrc
+Dockerfile
+license.markdown
+readme.markdown
+.next
+node_modules

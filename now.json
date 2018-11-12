@@ -1,7 +1,13 @@
 {
   "name": "chargin",
   "alias": "chargin.loganmcansh.com",
-  "type": "static",
+  "version": 2,
+  "builds": [
+    {
+      "src": "**",
+      "use": "@now/static"
+    }
+  ],
   "static": {
     "directoryListing": false,
     "headers": [
