@@ -2,24 +2,18 @@
   "name": "chargin",
   "alias": "chargin.loganmcansh.com",
   "version": 2,
-  "builds": [
-    {
-      "src": "**",
-      "use": "@now/static"
-    }
-  ],
-  "static": {
-    "directoryListing": false,
-    "headers": [
-      {
-        "source": "**/static/**",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=31536000, immutable"
-          }
-        ]
+  "routes": [
+     {
+      "src": "/_next(/static/(?:[^/]+/pages|chunks|runtime)/.+)",
+      "headers": {
+        "cache-control": "immutable,max-age=31536000"
       }
-    ]
-  }
+    },
+    {
+      "src": "**/static/**",
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    }
+  ]
 }
